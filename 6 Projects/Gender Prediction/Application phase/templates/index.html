@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block heading %}
+
+Welcome to Gender Prediction Sytem
+{% endblock %}
+
+{% block body %}
+
+	
+<div class="container">
+
+    <form action="{{ url_for('index') }}" method="post">
+        
+        <div class="form-group">
+  			<label for="Height">Please enter your Height in Centimeters:</label>
+  			<input  type="text" class="form-control" id="Height" name="Height">
+		</div>
+        <div class="form-group">
+  			<label for="Weight">Please enter your Weight in Kg:</label>
+  			<input type="text" name="Weight" class="form-control" id="usr">
+		</div>
+        <div class="form-group">
+      <label for="sel1">Select Hair Size:</label>
+      <select class="form-control"  name="Hair">
+        <option value="Bald">Bald</option>
+        <option value="Short">Short</option>
+        <option value="Medium">Medium</option>
+        <option value="Long">Long</option>
+      </select>
+      <br>
+  		</div>
+  	<div class="form-check-inline">
+  	<label>Do you have Beard?</label>
+  </div>
+    <div class="form-check-inline">
+      <label class="form-check-label" for="Yes">
+        <input type="radio" class="form-check-input"  name="Beard" value="Yes" checked>Yes
+      </label>
+    </div>
+    <div class="form-check-inline">
+      <label class="form-check-label" for="No">
+        <input type="radio" class="form-check-input"  name="Beard" value="No">No
+      </label>
+    </div>
+    <br>
+  	<div class="form-check-inline">
+  	<label>Do you wear Scarf?</label>
+  </div>
+    <div class="form-check-inline">
+      <label class="form-check-label" for="Yes">
+        <input type="radio" class="form-check-input"  name="Scarf" value="Yes" checked>Yes
+      </label>
+    </div>
+    <div class="form-check-inline">
+      <label class="form-check-label" for="No">
+        <input type="radio" class="form-check-input"  name="Scarf" value="No">No
+      </label>
+    </div>
+    <br><br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+<br><br>
+
+{% if prediction %}
+
+<div class="jumbotron jumbotron-fluid">
+  		<div class="container">
+<h1> I think you {{ prediction }} </h1>
+</div></div>
+
+{% endif %}
+ </div>
+
+{% endblock %}
